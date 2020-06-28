@@ -2,11 +2,11 @@ const express=require('express');//common js modules
 // import express from 'express'; es 2015 module
 const mongoose=require('mongoose');
 const cookieSession= require('cookie-session');
-const keys =require('./config/keys');
 const passport=require('passport');
+const keys =require('./config/keys');
 require('./models/User');
 require('./services/passport');
- 
+
 mongoose.connect(keys.mongoURI);
 const app = express();
 app.use(
