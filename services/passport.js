@@ -18,7 +18,7 @@ passport.use(
   clientID: keys.googleClientID,
   clientSecret: keys.googleClientSecret,
   callbackURL: '/auth/google/callback',//route to which user is sent when they grant permission
-  proxy: true//trust heroku proxy
+  proxy: true//trust heroku proxy and calculate callback url correctly
 },
 (accessToken,refreshToken,profile,done) => {
   // console.log('accessToken',accessToken);//after callback
