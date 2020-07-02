@@ -8,11 +8,15 @@ passport.authenticate('google',{//this internally finds the google strategy that
   })
 );
 
-app.get('/auth/google/callback',passport.authenticate('google'));//here the code is avaialaible that google sent us
+app.get('/auth/google/callback',passport.authenticate('google'),
+  (req,res) => {
+    res.redirect('/surveys');
+  }
+);//here the code is avaialaible that google sent us
 
 app.get('/api/logout',(req,res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
 });
 app.get('/api/current_user',(req,res)=> {
   res.send(req.user);
